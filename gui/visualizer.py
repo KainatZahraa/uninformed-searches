@@ -2,7 +2,6 @@
 import pygame
 import time
 from config import *
-from utils.grid_utils import add_dynamic_obstacle
 
 
 class PathfindingVisualizer:
@@ -17,7 +16,7 @@ class PathfindingVisualizer:
         
 
         self.screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-        pygame.display.set_caption(f"GOOD PERFORMANCE TIME APP - {algorithm_name}")
+        pygame.display.set_caption(f"AI Pathfinder - {algorithm_name}")
         
         # Fonts
         self.font = pygame.font.SysFont('Arial', 16)
@@ -26,7 +25,6 @@ class PathfindingVisualizer:
         # Stats
         self.nodes_explored = 0
         self.path_length = 0
-        self.dynamic_obstacles = []
         
     def draw_grid(self):
         """Draw the grid with cells"""
@@ -46,6 +44,8 @@ class PathfindingVisualizer:
                     color = WHITE  # Empty
                 
                 pygame.draw.rect(self.screen, color, (x, y, CELL_SIZE, CELL_SIZE))
+                # Draw grid lines for all cells
+                pygame.draw.rect(self.screen, GRAY, (x, y, CELL_SIZE, CELL_SIZE), 1)
     
     def draw_exploration(self, current, frontier, visited):
         """Draw the exploration state"""
@@ -104,7 +104,6 @@ class PathfindingVisualizer:
         stats = [
             f"Nodes Explored: {self.nodes_explored}",
             f"Path Length: {self.path_length}",
-            f"Dynamic Obstacles: {len(self.dynamic_obstacles)}",
             "",
             "Legend:",
             "Blue = Start",
@@ -128,12 +127,6 @@ class PathfindingVisualizer:
                 return
         
         self.nodes_explored = len(visited)
-        
-        # Check for dynamic obstacles
-        obstacle = add_dynamic_obstacle(self.grid, self.start, self.goal, 
-                                       DYNAMIC_OBSTACLE_PROBABILITY)
-        if obstacle:
-            self.dynamic_obstacles.append(obstacle)
         
         # Draw everything
         self.screen.fill(WHITE)
@@ -182,12 +175,25 @@ class PathfindingVisualizer:
         self.screen.blit(text, (GRID_SIZE * (CELL_SIZE + MARGIN) + 20, 
                                 WINDOW_HEIGHT - 60))
         
+        # Add instruction message
+        instruction_text = "Press any key or wait 3 seconds..."
+        instruction = self.font.render(instruction_text, True, GRAY)
+        self.screen.blit(instruction, (GRID_SIZE * (CELL_SIZE + MARGIN) + 20, 
+                                       WINDOW_HEIGHT - 30))
+        
         pygame.display.flip()
         
-        # Wait for user to close window
+        # Wait for user input (key press, mouse click, or close window)
+        # Or auto-close after 3 seconds
         waiting = True
+        start_time = time.time()
         while waiting:
             for event in pygame.event.get():
-                if event.type == pygame.QUIT:
+                if event.type == pygame.QUIT or event.type == pygame.KEYDOWN or event.type == pygame.MOUSEBUTTONDOWN:
                     waiting = False
-                    pygame.quit()
+            
+            # Auto-close after 3 seconds
+            if time.time() - start_time > 3:
+                waiting = False
+        
+        pygame.quit()

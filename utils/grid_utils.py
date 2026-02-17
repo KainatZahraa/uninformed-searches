@@ -69,23 +69,6 @@ def reconstruct_path(node):
     return path[::-1]
 
 
-def add_dynamic_obstacle(grid, start, goal, probability):
-    """Randomly add a dynamic obstacle to the grid"""
-    if random.random() < probability:
-        # Find a random empty cell
-        empty_cells = []
-        for i in range(GRID_SIZE):
-            for j in range(GRID_SIZE):
-                if grid[i][j] == 0 and (i, j) != (start[0], start[1]) and (i, j) != (goal[0], goal[1]):
-                    empty_cells.append((i, j))
-        
-        if empty_cells:
-            row, col = random.choice(empty_cells)
-            grid[row][col] = 1  # Add wall
-            return (row, col)
-    return None
-
-
 def initialize_grid():
     """Initialize an empty grid"""
     return [[0 for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]

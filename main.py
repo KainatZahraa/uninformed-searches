@@ -11,7 +11,7 @@ from algorithms import bfs, dfs, ucs, dls, iddfs, bidirectional_search
 def create_test_grid():
     """Create a test grid with random walls"""
     grid = initialize_grid()
-    add_random_walls(grid, num_walls=60)
+    add_random_walls(grid, num_walls=15)
     return grid
 
 
@@ -32,9 +32,9 @@ def run_algorithm(algorithm_name, grid, start, goal):
     elif algorithm_name == "UCS":
         path, visited = ucs(grid, start, goal, visualizer)
     elif algorithm_name == "DLS":
-        path, visited = dls(grid, start, goal, depth_limit=15, visualizer=visualizer)
+        path, visited = dls(grid, start, goal, depth_limit=25, visualizer=visualizer)
     elif algorithm_name == "IDDFS":
-        path, visited = iddfs(grid, start, goal, max_depth=30, visualizer=visualizer)
+        path, visited = iddfs(grid, start, goal, max_depth=35, visualizer=visualizer)
     elif algorithm_name == "Bidirectional":
         path, visited = bidirectional_search(grid, start, goal, visualizer)
     else:
@@ -62,7 +62,7 @@ def main():
     
     # Define start and goal positions
     start = (1, 1)
-    goal = (18, 18)
+    goal = (13, 13)
     
     # Create grid
     grid = create_test_grid()
