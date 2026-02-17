@@ -18,13 +18,13 @@ This project implements and visualizes six fundamental uninformed search algorit
 - **Real-time Visualization**: Watch algorithms explore the grid step-by-step
 - **Interactive GUI**: Built with Pygame for smooth visualization
 - **Color-coded States**: 
-  - 🔵 Blue = Start Position
-  - 🟢 Green = Goal Position
-  - ⬛ Black = Walls/Obstacles
-  - 🔶 Cyan = Visited Nodes
-  - 🟡 Yellow = Frontier Nodes
-  - 🟠 Orange = Current Node
-  - 🟣 Purple = Final Path
+  - Blue = Start Position
+  - Green = Goal Position
+  - Black = Walls/Obstacles
+  - Cyan = Visited Nodes
+  - Yellow = Frontier Nodes
+  - Orange = Current Node
+  - Purple = Final Path
 - **Performance Metrics**: Track nodes explored and path length for each algorithm
 - **Multiple Test Cases**: Run individual algorithms or all at once
 
@@ -164,12 +164,12 @@ Edit `config.py` to customize:
 
 | Algorithm | Completeness | Optimality | Time Complexity | Space Complexity |
 |-----------|-------------|------------|-----------------|------------------|
-| BFS | ✅ Yes | ✅ Yes | O(b^d) | O(b^d) |
-| DFS | ⚠️ No* | ❌ No | O(b^m) | O(bm) |
-| UCS | ✅ Yes | ✅ Yes | O(b^(C*/ε)) | O(b^(C*/ε)) |
-| DLS | ⚠️ No | ❌ No | O(b^l) | O(bl) |
-| IDDFS | ✅ Yes | ✅ Yes | O(b^d) | O(bd) |
-| Bidirectional | ✅ Yes | ✅ Yes | O(b^(d/2)) | O(b^(d/2)) |
+| BFS | Yes | Yes | O(b^d) | O(b^d) |
+| DFS | No | No | O(b^m) | O(bm) |
+| UCS | Yes | Yes | O(b^(C*/ε)) | O(b^(C*/ε)) |
+| DLS | No | No | O(b^l) | O(bl) |
+| IDDFS | Yes | Yes | O(b^d) | O(bd) |
+| Bidirectional | Yes | Yes | O(b^(d/2)) | O(b^(d/2)) |
 
 *b = branching factor, d = depth of solution, m = maximum depth, l = depth limit
 
@@ -185,6 +185,3 @@ This is an academic project for AI 2002 - Artificial Intelligence (Spring 2026).
 
 
 
----
-
-**Note**: Replace XXXX with your actual student ID and update personal information before submission.
