@@ -3,7 +3,7 @@
 
 A comprehensive implementation and visualization of six uninformed search algorithms for pathfinding in a grid environment. This project demonstrates how different "blind" search strategies explore a map from a Start Point to a Target Point while avoiding static obstacles.
 
-## 🎯 Project Overview
+## Project Overview
 
 This project implements and visualizes six fundamental uninformed search algorithms:
 1. **Breadth-First Search (BFS)**
@@ -13,7 +13,7 @@ This project implements and visualizes six fundamental uninformed search algorit
 5. **Iterative Deepening DFS (IDDFS)**
 6. **Bidirectional Search**
 
-## ✨ Features
+## Features
 
 - **Real-time Visualization**: Watch algorithms explore the grid step-by-step
 - **Interactive GUI**: Built with Pygame for smooth visualization
@@ -28,14 +28,14 @@ This project implements and visualizes six fundamental uninformed search algorit
 - **Performance Metrics**: Track nodes explored and path length for each algorithm
 - **Multiple Test Cases**: Run individual algorithms or all at once
 
-## 📋 Requirements
+## Requirements
 
 ```
 Python 3.8+
 pygame 2.6.0+
 ```
 
-## 🚀 Installation
+## Installation
 
 1. **Clone the repository**
    ```bash
@@ -48,7 +48,7 @@ pygame 2.6.0+
    pip install pygame
    ```
 
-## 💻 Usage
+## Usage
 
 Run the main application:
 ```bash
@@ -69,7 +69,7 @@ q. Quit
 
 Enter the number corresponding to the algorithm you want to visualize.
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 AI_A1_23F-XXXX/
@@ -97,7 +97,7 @@ AI_A1_23F-XXXX/
 └── README.md            # This file
 ```
 
-## 🎮 How It Works
+## How It Works
 
 ### Movement Order
 As per assignment requirements, the algorithms explore neighbors in this specific clockwise order:
@@ -152,7 +152,7 @@ As per assignment requirements, the algorithms explore neighbors in this specifi
 - Reduces search space significantly
 - Can be faster than unidirectional search
 
-## 🎨 Configuration
+## Configuration
 
 Edit `config.py` to customize:
 - Grid size and cell dimensions
@@ -160,7 +160,7 @@ Edit `config.py` to customize:
 - Animation speed (ANIMATION_DELAY)
 - Movement costs
 
-## 📊 Performance Comparison
+## Performance Comparison
 
 | Algorithm | Completeness | Optimality | Time Complexity | Space Complexity |
 |-----------|-------------|------------|-----------------|------------------|
@@ -173,13 +173,13 @@ Edit `config.py` to customize:
 
 *b = branching factor, d = depth of solution, m = maximum depth, l = depth limit
 
-## 🐛 Known Limitations
+## Known Limitations
 
 - DLS may fail if the depth limit is too restrictive
 - IDDFS can be slow due to repeated exploration at each depth level
 - Grid is regenerated randomly each run (obstacles change)
 
-## 🤝 Contributing
+## Contributing
 
 This is an academic project for AI 2002 - Artificial Intelligence (Spring 2026). 
 
